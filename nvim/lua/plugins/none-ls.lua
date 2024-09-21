@@ -1,5 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
+	event = "BufReadPre",
 
 	config = function()
 		local null_ls = require("null-ls")
@@ -12,6 +13,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { silent = true })
 	end,
 }

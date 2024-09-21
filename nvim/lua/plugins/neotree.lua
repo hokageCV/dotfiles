@@ -8,6 +8,6 @@ return {
   },
 
   config = function()
-    vim.keymap.set('n', '<leader>b', ':Neotree filesystem toggle right<CR>', {})
-  end
+    vim.keymap.set("n", "<leader>b", ":Neotree filesystem toggle right<CR>", { silent = true })
+  end,
 }
