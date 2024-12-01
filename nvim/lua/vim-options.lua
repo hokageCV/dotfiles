@@ -11,7 +11,7 @@ vim.g.autoformat = true
 
 vim.keymap.set("n", ",p", '"0p', { silent = true })
 vim.keymap.set("n", "<leader>`", "ysiw`", { silent = true })
-vim.keymap.set("n", "<leader>w", ":up<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader><leader>w", ":up<CR>", { noremap = true, silent = true })
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -48,6 +48,10 @@ vim.keymap.set("n", ",w", "<C-W>", { noremap = true, silent = true })
 vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
 vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
 
+-- copy filename & path
+vim.keymap.set("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
+vim.keymap.set("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
+
 -- hybrid line numbering
 vim.wo.number = true
 vim.wo.relativenumber = true
@@ -61,3 +65,8 @@ opt.scrolloff = 4 -- Lines of context
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
+opt.swapfile = false -- Don't use swap file
+
+opt.foldenable = true
+opt.foldmethod = "syntax"
+
