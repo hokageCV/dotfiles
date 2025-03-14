@@ -47,11 +47,41 @@ alias gl='git log '
 alias glp='git log -p '
 alias glo="git log  --oneline --format='%C(auto)%h %C(blue)%ad %C(green)%an  %C(auto)%s' --date=format:'%d-%m-%y %H:%M'  "
 alias glon="git log  --oneline --no-merges --format='%C(auto)%h %C(blue)%ad %C(green)%an  %C(auto)%s' --date=format:'%d-%m-%y %H:%M'  "
+alias glop='git log --oneline --decorate --format='\''%C(auto)%h %C(yellow)%p %C(red)%d %C(blue)%ad %C(green)%an %C(auto)%s'\'' --date=format:'\''%d-%m-%y %H:%M'\'''
+alias glp-='glp $(fc -ln -1 | awk "{print \$2}")' # for zsh. use this after glo. this gets the file used in glo and uses in glp
 alias glpw='git log -p --color-words '
 
 alias grfl='git reflog '
 alias gsts='git status '
 alias grb='git rebase '
+alias grs='git restore '
+alias grs.='git restore . '
+
+# display last author's number of commits. Useful for getting the count before interactive rebase
+alias mycommits="git log --pretty=format:'%an' | awk 'NR==1 {author=\$0} \$0==author {count++} \$0!=author {exit} END {print count}'"
+
+unalias grbimy 2>/dev/null
+grbimy() {
+  author=$(git log --pretty=format:"%an" | head -1)
+  commits=$(mycommits)
+
+  if [[ -z "$commits" || "$commits" -eq 0 ]]; then
+    echo "No commits found for rebasing."
+    return 1
+  fi
+
+  echo "Rebasing $commits commits of $author"
+  echo "Press Enter to continue..."
+  read # This waits for user input
+
+  git rebase -i HEAD~$commits
+}
+
+alias gupsw='git update-index --skip-worktree '
+alias gupnsw='git update-index --no-skip-worktree '
+
+alias lg='lazygit '
+alias gh-create='gh repo create --private --source=. --remote=origin && git push -u --all && gh browse'
 
 # npm
 alias nr='npm run '
@@ -65,6 +95,10 @@ alias hs='hugo server'
 alias rs='rails server '
 alias rc='rails console '
 alias rdm='rails db:migrate '
+alias rgm='rails g migration '
+alias rtw='rails tailwindcss:watch'
+alias drpa='docker exec -it $WEB_CONTAINER /bin/bash -c "rake assets:precompile; exit" '
+alias drc='docker exec -it $WEB_CONTAINER /bin/bash -c "rails c" '
 
 # docker
 WEB_CONTAINER="docker_rails-web-1"
@@ -88,9 +122,4 @@ alias desp='docker exec -it $DB /bin/bash -c "psql -U postgres -d makerble_stagi
 alias dep='docker exec -it $DB /bin/bash -c "psql -U postgres -d makerble -x"'
 alias dr='docker compose restart web'
 alias dra='docker compose restart web && da '
-
-alias dau="clear && docker attach $URL_SHORTNER_CONTAINER "
-
-# rails
-alias drpa='docker exec -it $WEB_CONTAINER /bin/bash -c "rake assets:precompile; exit" '
-alias drc='docker exec -it $WEB_CONTAINER /bin/bash -c "rails c" '
+alias dspr='docker system prune '
