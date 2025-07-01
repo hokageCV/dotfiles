@@ -29,6 +29,13 @@ Action<IConfigContext> doConfig = (context) =>
     context.AddFocusIndicator();
     var actionMenu = context.AddActionMenu();
 
+    context.DefaultLayouts = () => new ILayoutEngine[] {
+        new TallLayoutEngine(),  // Default tiling
+        // new VertLayoutEngine(),   // stacked top to bottom
+        new HorzLayoutEngine(), // stacked left to right
+        new FullLayoutEngine()   // Maximized
+    };
+
     context.WorkspaceContainer.CreateWorkspaces("1", "2", "3", "4", "5", "6", "7", "8");
     context.CanMinimizeWindows = true;
 };
