@@ -1,0 +1,50 @@
+[core]
+	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RF
+[user]
+	name = hokageCV
+	email = chaitanyavaru@gmail.com
+[push]
+	default = current
+[fetch]
+	prune = true
+	pruneTags = true
+[init]
+	defaultBranch = main
+[color]
+	ui = true
+[column]
+	ui = auto
+[help]
+	autocorrect = prompt
+[rebase]
+	autoStash = true
+	updateRefs = true
+[commit]
+	verbose = true
+[log]
+	abbrevCommit = true
+	date = format:%a %b %d %Y %H:%M  %z
+[rerere]
+	enabled = true
+	autoupdate = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

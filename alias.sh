@@ -50,6 +50,7 @@ alias glon="git log  --oneline --no-merges --format='%C(auto)%h %C(blue)%ad %C(g
 alias glop='git log --oneline --decorate --format='\''%C(auto)%h %C(yellow)%p %C(red)%d %C(blue)%ad %C(green)%an %C(auto)%s'\'' --date=format:'\''%d-%m-%y %H:%M'\'''
 alias glp-='glp $(fc -ln -1 | awk "{print \$2}")' # for zsh. use this after glo. this gets the file used in glo and uses in glp
 alias glpw='git log -p --color-words '
+alias glod="git log --format='%C(auto)%h %C(blue)%ad %C(green)%an%n%C(auto)%B' --date=format:'%d-%m-%y %H:%M'" # show commit description if any
 
 alias grfl='git reflog '
 alias gsts='git status '
