@@ -1,10 +1,4 @@
 alias c='clear'
-alias tree='cmd //c tree' # windows command in git bash
-
-# alias sk='cd  ~/dev/ssh_keys'
-# alias gr='sk && eval $(ssh-agent -s) && ssh-add ./gh && cd -'
-# alias zshopen='vi ~/.zshrc && source ~/.zshrc'
-# alias scpt='cd ~/scripts_makerble && ./execute_makerble_scripts.sh && mak '
 
 # navigation
 alias ..='cd ..'
@@ -13,6 +7,8 @@ alias ....='cd ../../..'
 
 # git
 alias g='git '
+
+alias gr='eval $(ssh-agent -s) && ssh-add ~/.ssh/hokage'
 
 alias gbd='git branch -d '
 alias gbdd='git branch -D '

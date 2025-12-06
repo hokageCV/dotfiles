@@ -1,0 +1,47 @@
+{
+  "layer": "top",
+  "position": "top",
+  "output": "HDMI-A-1",
+  "all-outputs": false,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": [],
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "{:%d} {:%b}, {:%a}",
+    "tooltip": true
+  },
+  "network": {
+    "format-wifi": "🛜",
+    "format-disconnected": "",
+    "format-ethernet": "E",
+    "tooltip-format": "{essid} ({signalStrength}%)\n{ipaddr}",
+    "tooltip-format-disconnected": "no wifi connected"
+  },
+  "hyprland/workspaces": {
+    "monitor": "HDMI-A-1", 
+    "format": "{icon}",
+    "format-icons": {
+      "default": "♦",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "active": "♦"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": []
+    }
+  }
+}

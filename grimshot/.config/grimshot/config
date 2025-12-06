@@ -1,0 +1,2 @@
+filename_format = "%y%m%d_%H%M%S"
+save_dif = "~/Pictures"

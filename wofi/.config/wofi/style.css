@@ -1,0 +1,76 @@
+window {
+  margin: 0px;
+  padding: 10px;
+  border: 1px solid #f8b089;
+  border-radius: 8px;
+
+  color: #b2cacd;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+}
+
+#outer-box {
+  padding: 10px;
+}
+
+#input {
+  margin-bottom: 10px;
+  padding: 8px 10px;
+
+  background-color: #031417;
+  color: #b2cacd;
+
+  border: 1px solid #324a4d;
+  border-radius: 6px;
+
+  font-size: 16px;
+}
+
+#input:focus {
+  border-color: #169fb1;
+  outline: none;
+}
+
+#scroll {
+  margin-top: 5px;
+}
+
+#inner-box {
+  padding: 5px 0px;
+}
+
+#entry {
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+#entry:selected {
+  background-color: #169fb1;
+  color: #031417;
+}
+
+#text {
+  color: inherit;
+}
+
+#entry:selected #text {
+  color: #031417;
+}
+
+#entry:hover {
+  background-color: #006671;
+  color: #031417;
+}
+
+#img {
+  margin-right: 8px;
+}
+
+#entry .description {
+  font-size: 12px;
+  color: #47686c;
+}
+
+#entry:selected .description {
+  color: #031417;
+}
