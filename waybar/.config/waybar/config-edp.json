@@ -7,6 +7,10 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": ["clock", "battery", "bluetooth", "wireplumber", "network"],
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 70
+  },
   "clock": {
     "format": "{:%I:%M %p}",
     "tooltip": true,
@@ -18,10 +22,10 @@
       "format-full": "",
       "format-charging": "{capacity}%⚡",
       "format-plugged": "",
-      "interval": 120
+      "interval": 30
   },
   "bluetooth": {
-      "format": " on",
+      "format": "",
       "format-connected": " ✔",
       "format-off": " idle",
       "format-disabled": "",
@@ -29,9 +33,9 @@
       "tooltip-format": "{device_alias}"
   },
   "network": {
-    "format-wifi": "🛜",
-    "format-disconnected": "",
-    "format-ethernet": "E",
+    "format-wifi": "",
+    "format-disconnected": "🛜 off",
+    "format-ethernet": "",
     "tooltip-format": "{essid} ({signalStrength}%)\n{ipaddr}",
     "tooltip-format-disconnected": "no wifi connected"
   },
@@ -56,8 +60,7 @@
       "5": "5",
       "6": "6",
       "7": "7",
-      "8": "8",
-      "active": "♦"
+      "8": "8"
     },
     "persistent-workspaces": {
       "1": [],

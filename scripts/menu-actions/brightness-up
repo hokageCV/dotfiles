@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ddcutil setvcp 10 31
+brightnessctl set 40%

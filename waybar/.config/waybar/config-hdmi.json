@@ -6,18 +6,6 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
   "modules-right": [],
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "tooltip-format": "{:%d} {:%b}, {:%a}",
-    "tooltip": true
-  },
-  "network": {
-    "format-wifi": "🛜",
-    "format-disconnected": "",
-    "format-ethernet": "E",
-    "tooltip-format": "{essid} ({signalStrength}%)\n{ipaddr}",
-    "tooltip-format-disconnected": "no wifi connected"
-  },
   "hyprland/workspaces": {
     "monitor": "HDMI-A-1", 
     "format": "{icon}",
@@ -31,7 +19,6 @@
       "6": "6",
       "7": "7",
       "8": "8",
-      "active": "♦"
     },
     "persistent-workspaces": {
       "1": [],

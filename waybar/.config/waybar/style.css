@@ -1,0 +1,124 @@
+@define-color bg        #031417;
+@define-color fg        #b2cacd;
+@define-color muted     #47686c;
+
+@define-color cyan      #169fb1;
+@define-color cyan-soft #006671;
+
+@define-color orange    #e66533;
+@define-color orange-hi #e97749;
+
+@define-color blue      #49ace9;
+@define-color green     #49e9a6;
+@define-color yellow    #e4b781;
+
+/* ---------- Global ---------- */
+
+* {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14.5px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+/* ---------- Waybar container ---------- */
+
+window#waybar {
+  background-color: transparent;
+  color: @fg;
+}
+
+/* ---------- Common module styling ---------- */
+
+#workspaces,
+#clock,
+#battery,
+#bluetooth,
+#wireplumber,
+#network,
+#window {
+  padding: 1px 10px;
+  margin: 1px 4px;
+
+  background-color: @bg;
+  color: @fg;
+  border-radius: 8px;
+}
+
+/* ---------- Workspaces ---------- */
+
+#workspaces button {
+  padding: 1px 6px;
+  margin: 0 2px;
+
+  background: transparent;
+  color: @muted;
+  border-radius: 6px;
+}
+
+#workspaces button.active {
+  background-color: @cyan;
+  color: @bg;
+}
+
+#workspaces button:hover {
+  background-color: @cyan-soft;
+  color: @bg;
+}
+
+#window {
+  color: @muted;
+  font-style: italic;
+}
+
+#clock {
+  color: @blue;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @yellow;
+}
+
+#battery.critical {
+  color: @orange;
+}
+
+#bluetooth {
+  color: #49d6e9;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @muted;
+}
+
+#wireplumber {
+  color: @fg;
+}
+
+#wireplumber.muted {
+  color: @muted;
+}
+
+#network {
+  color: #60b6eb;
+}
+
+#network.disconnected {
+  color: @muted;
+}
+
+tooltip {
+  background-color: @bg;
+  color: @fg;
+
+  border: 1px solid @cyan-soft;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
