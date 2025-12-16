@@ -22,8 +22,14 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
 export MOZ_ENABLE_WAYLAND=1
 export OZONE_PLATFORM=wayland
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+if command -v rbenv >/dev/null 2>&1; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 export PATH="$HOME/.cargo/bin:$PATH"
+
