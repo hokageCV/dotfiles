@@ -1,0 +1,10 @@
+[Default]
+save_dir=$HOME/Pictures/Screenshots
+save_filename_format=%Y-%m-%d-%H%M%S.png
+auto_copy_on_save=true
+
+show_toolbar=true
+show_statusbar=true
+
+tool=arrow
+
