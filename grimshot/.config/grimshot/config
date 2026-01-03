@@ -1,2 +1,2 @@
-filename_format = "%y%m%d_%H%M%S"
-save_dif = "~/Pictures"
+filename_format = "%Y-%m-%d-%H%M%S"
+save_dif = "~/Pictures/Screenshots"

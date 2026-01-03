@@ -1,0 +1,8 @@
+[Default]
+save_dir=$HOME/Pictures/Screenshots
+save_filename_format=%Y-%m-%d-%H%M%S.png
+
+show_panel=true 
+paint_mode=arrow
+custom_color=rgba(255, 119, 34, 1)
+
