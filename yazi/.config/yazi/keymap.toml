@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "t", "d" ]
+run  = 'shell "dolphin . &" --orphan'
+desc = "Open Dolphin in current directory"
