@@ -1,0 +1,187 @@
+# Noctis Obscuro — Yazi Theme
+
+[app]
+overall = { bg = "#031417" }
+
+# Core palette definitions
+bg = "#031417"
+fg = "#b2cacd"
+cyan = "#169fb1"
+cyan-soft = "#006671"
+orange = "#e66533"
+teal-mid = "#324a4d"
+teal-lite = "#47686c"
+white = "#c1d4d7"
+
+# : Manager
+[mgr]
+# Current working directory — subtle cyan
+cwd = { fg = "#49d6e9" }
+
+# Hovered / Preview
+hovered = { reversed = true }
+preview_hovered = { underline = true }
+
+# Search highlighting
+find_keyword = { fg = "#e4b781", bold = true, italic = true, underline = true }
+find_position = { fg = "#df769b", bold = true, italic = true }
+
+# Markers
+marker_copied   = { fg = "#49e9a6", bg = "#49e9a6" }
+marker_cut      = { fg = "#e66533", bg = "#e66533" }
+marker_marked   = { fg = "#49d6e9", bg = "#49d6e9" }
+marker_selected = { fg = "#e4b781", bg = "#e4b781" }
+
+# Tabs
+tab_active = { reversed = true }
+tab_inactive = { fg = "#47686c" }
+tab_width = 1
+
+# Count badges
+count_copied   = { fg = "#031417", bg = "#49e9a6" }
+count_cut      = { fg = "#031417", bg = "#e66533" }
+count_selected = { fg = "#031417", bg = "#e4b781" }
+
+# Border (soft teal)
+border_symbol = "│"
+border_style = { fg = "#324a4d" }
+
+# : Tabs
+[tabs]
+active = { fg = "#031417", bg = "#49d6e9", bold = true }
+inactive = { fg = "#49d6e9", bg = "#031417" }
+
+# : Mode
+[mode]
+normal_main = { fg = "#031417", bg = "#49d6e9", bold = true }
+normal_alt  = { fg = "#49d6e9", bg = "#031417" }
+
+select_main = { fg = "#031417", bg = "#49d6e9", bold = true }
+select_alt  = { fg = "#49d6e9", bg = "#031417" }
+
+unset_main  = { fg = "#031417", bg = "#e66533", bold = true }
+unset_alt   = { fg = "#e66533", bg = "#031417" }
+
+# : Indicator
+[indicator]
+parent = { fg = "#031417", bg = "#49d6e9" }
+current = { fg = "#031417", bg = "#49d6e9" }
+preview = { fg = "#031417", bg = "#49d6e9" }
+
+# : Status
+[status]
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+progress_label  = { fg = "#c1d4d7", bold = true }
+progress_normal = { fg = "#49d6e9", bg = "#324a4d" }
+progress_error  = { fg = "#e66533", bg = "#324a4d" }
+
+perm_sep   = { fg = "#324a4d" }
+perm_type  = { fg = "#49ace9" }
+perm_read  = { fg = "#e4b781" }
+perm_write = { fg = "#e66533" }
+perm_exec  = { fg = "#49e9a6" }
+
+# : Input
+[input]
+border   = { fg = "#49ace9" }
+title    = { fg = "#b2cacd" }
+value    = { fg = "#c1d4d7" }
+selected = { reversed = true }
+
+# : Pick
+[pick]
+border = { fg = "#49ace9" }
+active = { fg = "#df769b", bold = true }
+inactive = { fg = "#b2cacd" }
+
+# : Confirm
+[confirm]
+border     = { fg = "#49ace9" }
+title      = { fg = "#49ace9" }
+body       = {}
+list       = {}
+btn_yes    = { reversed = true }
+btn_no     = {}
+
+# : Completion
+[cmp]
+border = { fg = "#49ace9" }
+
+# : Tasks
+[tasks]
+border  = { fg = "#49ace9" }
+title   = { fg = "#c1d4d7" }
+hovered = { fg = "#df769b", underline = true }
+
+# : Which
+[which]
+mask            = { bg = "#031417" }
+cand            = { fg = "#49d6e9" }
+rest            = { fg = "#47686c" }
+desc            = { fg = "#df769b" }
+separator       = "  "
+separator_style = { fg = "#324a4d" }
+
+# : Help
+[help]
+on      = { fg = "#49d6e9" }
+run     = { fg = "#df769b" }
+desc    = { fg = "#b2cacd" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#031417", bg = "#c1d4d7" }
+
+# : Notify
+[notify]
+title_info  = { fg = "#49e9a6" }
+title_warn  = { fg = "#e4b781" }
+title_error = { fg = "#e66533" }
+
+# : Filetype
+[filetype]
+rules = [
+  # Media
+  { mime = "image/*", fg = "#49d6e9" },
+  { mime = "{audio,video}/*", fg = "#e4b781" },
+  
+  # Archives
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,archive,cpio}", fg = "#df769b" },
+  
+  # Documents
+  { mime = "application/{pdf,doc,rtf,odt,docx,xlsx,pptx}", fg = "#49e9a6" },
+  
+  # Virtual file system
+  { mime = "vfs/{absent,stale}", fg = "#324a4d" },
+  
+  # Special file
+  { url = "*", is = "orphan", bg = "#e66533" },
+  { url = "*", is = "exec", fg = "#49e9a6" },
+  
+  # Dummy file
+  { url = "*", is = "dummy", bg = "#e66533" },
+  { url = "*/", is = "dummy", bg = "#e66533" },
+  
+  # Fallback
+  { url = "*/", fg = "#49ace9", bold = true },
+  { name = "*", fg = "#b2cacd" },
+]
+
+# : Spot
+[spot]
+border = { fg = "#49ace9" }
+title  = { fg = "#49ace9" }
+tbl_cell = { fg = "#49ace9", reversed = true }
+tbl_col = { bold = true }
+
+# : Icon (optional - you can add your own icon mappings if you want)
+[icon]
+files = []
+exts = []
+
+# : Tasks (alias for [tasks] - just in case)
+[tasks]
+border  = { fg = "#49ace9" }
+title   = { fg = "#c1d4d7" }
+hovered = { fg = "#df769b", underline = true }
+

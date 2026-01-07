@@ -27,8 +27,9 @@
   "bluetooth": {
       "format": "",
       "format-connected": " ✔",
-      "format-off": " idle",
+      "format-off": "",
       "format-disabled": "",
+      "on-click": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
       "tooltip": true,
       "tooltip-format": "{device_alias}"
   },
@@ -41,7 +42,7 @@
   },
   "wireplumber": {
     "format": " {volume}%",
-    "format-muted": " muted",
+    "format-muted": "  ⛌",
     "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+",
