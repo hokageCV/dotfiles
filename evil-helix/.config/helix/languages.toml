@@ -1,0 +1,12 @@
+[[language]]
+name = "python"
+
+[[language]]
+name = "bash"
+
+[[language]]
+name = "toml"
+
+[[language]]
+name = "markdown"
+
