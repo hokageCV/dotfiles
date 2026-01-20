@@ -1,0 +1,16 @@
+# Zsh runtime files
+.zcompdump
+.zcompdump.*
+.zcompdump-*
+.zsh_history
+plugins.zsh
+
+# Antidote generated files
+.antidote/
+*.zwc
+
+# Compiled completion cache
+zcompdump*
+
+# macOS / editor noise
+.DS_Store

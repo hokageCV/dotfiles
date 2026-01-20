@@ -1,19 +1,31 @@
-export ZSH="$HOME/.oh-my-zsh"
+# Antidote
+source "${ZDOTDIR}/antidote/antidote.zsh"
+antidote load "${ZDOTDIR}/plugins.txt"
 
-ZSH_THEME="robbyrussell"
-
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+# =====================
 
 if [[ -x "$HOME/scripts/start-ssh-agent.sh" ]]; then
 	"$HOME/scripts/start-ssh-agent.sh"
 fi
 
-if [ -f "$HOME/.config/zsh/alias.sh" ]; then
-    source "$HOME/.config/zsh/alias.sh" 
-fi
+# ===================
 
+source "${ZDOTDIR}/prompt.zsh"
+source "${ZDOTDIR}/history.zsh"
+source "${ZDOTDIR}/keybindings.zsh"
+source "${ZDOTDIR}/aliases/init.zsh"
+
+# ===================
+
+setopt AUTO_CD
+
+autoload -Uz compinit
+compinit
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# ===================
 
 # pnpm
 export PNPM_HOME="/home/hokage/.local/share/pnpm"

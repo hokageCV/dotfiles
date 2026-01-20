@@ -1,3 +1,6 @@
 [submodule "kitty/.config/kitty/kitty-noctis"]
 	path = kitty/.config/kitty/kitty-noctis
 	url = git@github.com:hokageCV/kitty-noctis.git
+[submodule "zsh/.config/zsh/antidote"]
+	path = zsh/.config/zsh/antidote
+	url = https://github.com/mattmc3/antidote.git
