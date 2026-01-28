@@ -21,7 +21,11 @@ setopt AUTO_CD
 
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|=*' \
+  'l:|=*'
 
 export EDITOR="nvim"
 export VISUAL="nvim"

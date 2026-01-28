@@ -6,7 +6,7 @@ ACTIONS_DIR="$HOME/dotfiles/scripts/menu-actions"
 declare -A ACTIONS=(
   ["Brightness Decrease"]="brightness-down"
   ["Brightness Increase"]="brightness-up"
-  ["Screenshot Edit"]="screenshot-edit"
+  ["OCR"]="ocrshot"
 )
 
 choice=$(
