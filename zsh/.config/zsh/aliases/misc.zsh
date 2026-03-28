@@ -6,3 +6,6 @@ alias ns='npm run start'
 # hugo
 alias hs='hugo server'
 
+# yazi
+alias yz='yazi '
+

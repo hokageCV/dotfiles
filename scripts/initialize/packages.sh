@@ -47,6 +47,7 @@ PACKAGES=(
   wl-clipboard
   cliphist
   grimshot
+  hyprpicker
 
   # lang
   tesseract
