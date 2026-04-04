@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ddcutil setvcp 10 0
 brightnessctl set 0%
+ddcutil setvcp 10 0
