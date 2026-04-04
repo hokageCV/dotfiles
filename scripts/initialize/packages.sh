@@ -33,6 +33,7 @@ PACKAGES=(
   hypridle
   hyprpaper
   xdg-desktop-portal-hyprland
+  qt6ct
 
   # UI / tools
   kitty
