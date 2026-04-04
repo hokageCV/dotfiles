@@ -7,6 +7,9 @@ declare -A ACTIONS=(
   ["Brightness Decrease"]="brightness-down"
   ["Brightness Increase"]="brightness-up"
   ["OCR"]="ocrshot"
+  ["Close All Programs"]="close-all-programs"
+  ["Toggle Presentation Mode"]="toggle-presentation-mode"
+  ["Shutdown"]="shutdown"
 )
 
 choice=$(

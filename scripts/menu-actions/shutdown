@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+hyprctl clients -j | jq -r '.[] | .address' | while read -r addr; do
+  [[ -n "$addr" ]] && hyprctl dispatch closewindow "address:$addr"
+done
+
+sleep 1
+
+poweroff
