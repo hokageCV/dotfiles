@@ -11,6 +11,7 @@ fi
 # ===================
 
 source "${ZDOTDIR}/prompt.zsh"
+source "${ZDOTDIR}/evals.zsh"
 source "${ZDOTDIR}/history.zsh"
 source "${ZDOTDIR}/keybindings.zsh"
 source "${ZDOTDIR}/autocomplete.zsh"

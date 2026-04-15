@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+STATE_FILE="$HOME/dotfiles/scripts/misc-temp/.recording"
+OUTPUT_DIR="$HOME/Videos/Recordings"
+
+mkdir -p "$OUTPUT_DIR"
+
+if [[ -f "$STATE_FILE" ]]; then
+  PID=$(cat "$STATE_FILE")
+  if kill -0 "$PID" 2>/dev/null; then
+    kill "$PID"
+    notify-send "Screen Recording" "Recording stopped"
+  fi
+  rm -f "$STATE_FILE"
+else
+  TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+  OUTPUT_FILE="$OUTPUT_DIR/recording_${TIMESTAMP}.mp4"
+
+  GEOM=$(slurp)
+  [[ -z "$GEOM" ]] && exit 0
+
+  wf-recorder -g "$GEOM" --audio -f "$OUTPUT_FILE" &
+  PID=$!
+
+  echo "$PID" > "$STATE_FILE"
+  notify-send "Screen Recording" "Recording started - $OUTPUT_FILE"
+fi

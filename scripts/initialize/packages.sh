@@ -49,6 +49,8 @@ PACKAGES=(
   cliphist
   grimshot
   hyprpicker
+  wf-recorder
+  ffmpeg
 
   # lang
   tesseract

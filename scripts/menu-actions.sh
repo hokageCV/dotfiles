@@ -9,6 +9,7 @@ declare -A ACTIONS=(
   ["OCR"]="ocrshot"
   ["Close All Programs"]="close-all-programs"
   ["Toggle Presentation Mode"]="toggle-presentation-mode"
+  ["Screen Record"]="screen-record"
   ["Shutdown"]="shutdown"
 )
 
