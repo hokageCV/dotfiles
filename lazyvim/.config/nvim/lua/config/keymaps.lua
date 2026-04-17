@@ -5,3 +5,6 @@
 -- Yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { silent = true })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { silent = true })
+
+-- Exit terminal mode with a single ESC
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit Terminal Mode", silent = true })
