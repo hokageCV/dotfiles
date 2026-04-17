@@ -28,3 +28,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.api.nvim_win_set_cursor(0, pos)
   end,
 })
+
+-- fallback folding
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "haml", "eruby" },
+  callback = function()
+    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.foldlevel = 99
+  end,
+})

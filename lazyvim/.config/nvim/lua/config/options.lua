@@ -5,3 +5,10 @@
 vim.opt.fixendofline = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
+
+-- folds
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldcolumn = "1"
