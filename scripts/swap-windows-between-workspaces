@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+focused_monitor=$(hyprctl -j monitors | jq -r '.[] | select(.focused).name')
+other_monitor=$(hyprctl -j monitors | jq -r '.[] | select(.focused | not).name')
+
+focused_ws=$(hyprctl -j monitors | jq -r --arg m "$focused_monitor" '.[] | select(.name == $m).activeWorkspace.name')
+other_ws=$(hyprctl -j monitors | jq -r --arg m "$other_monitor" '.[] | select(.name == $m).activeWorkspace.name')
+
+focused_ws_num=${focused_ws#ws}
+other_ws_num=${other_ws#ws}
+
+focused_windows=$(hyprctl clients -j | jq -r --arg ws "$focused_ws_num" '.[] | select(.workspace.id == ($ws | tonumber)) .address')
+other_windows=$(hyprctl clients -j | jq -r --arg ws "$other_ws_num" '.[] | select(.workspace.id == ($ws | tonumber)) .address')
+
+for addr in $other_windows; do
+  hyprctl dispatch movetoworkspacesilent "$focused_ws_num,address:$addr"
+done
+
+for addr in $focused_windows; do
+  hyprctl dispatch movetoworkspacesilent "$other_ws_num,address:$addr"
+done
+
