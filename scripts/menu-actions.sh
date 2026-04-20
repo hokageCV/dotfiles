@@ -7,10 +7,10 @@ declare -A ACTIONS=(
   ["Brightness Decrease"]="brightness-down"
   ["Brightness Increase"]="brightness-up"
   ["OCR"]="ocrshot"
-  ["Close All Programs"]="close-all-programs"
   ["Toggle Presentation Mode"]="toggle-presentation-mode"
   ["Screen Record"]="screen-record"
   ["Shutdown"]="shutdown"
+  ["Move programs to laptop screen"]="move-windows-external-to-laptop"
 )
 
 choice=$(
