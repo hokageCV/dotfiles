@@ -21,6 +21,7 @@ alias ga='git add '
 alias gpo='git push origin '
 alias gpu='git push '
 alias gpl='git pull '
+alias gplf='git fetch origin && git reset --hard @{u} '
 alias gpuf='git push --force-with-lease '
 
 alias gs='git stash push '
