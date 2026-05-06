@@ -1,0 +1,269 @@
+
+set $mod Mod1
+
+# Programs
+set $terminal kitty
+set $fileManager dolphin
+set $menu wofi --show drun
+set $browser brave-browser
+set $vscode code
+set $obsidian ~/dotfiles/scripts/obsidian
+
+# Color picker
+set $color_picker grim -g "$(slurp)" - | convert - -format '%hex' info:- | wl-copy
+
+# Clipboard manager
+set $clipboardManager cliphist list | wofi --dmenu --matching fuzzy --insensitive | cliphist decode | wl-copy
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Environment Variables
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exec_always env XCURSOR_SIZE=24
+exec_always env QT_QPA_PLATFORMTHEME=qt6ct
+exec_always env QT_QPA_PLATFORM=wayland
+exec_always env QT_STYLE_OVERRIDE=qt6ct
+exec_always env GTK_THEME=Breeze
+exec_always env GTK_THEME_VARIANT=dark
+exec_always env XCURSOR_THEME=breeze_cursors
+exec_always env SODIUM_DARK_MODE=1
+exec_always env ELECTRON_OZONE_PLATFORM_HINT=auto
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Output Configuration (Monitors)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output HDMI-A-1 resolution 1920x1080 position 0 0
+
+output eDP-1 resolution 1920x1200 position 1920 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Workspace Configuration
+# ═══════════════════════════════════════════════════════════════════════════════
+
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+workspace 5 output eDP-1
+workspace 6 output eDP-1
+workspace 7 output eDP-1
+workspace 8 output eDP-1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Input Configuration
+# ═══════════════════════════════════════════════════════════════════════════════
+
+input "type:keyboard" {
+    xkb_layout us
+}
+
+input "type:touchpad" {
+    natural_scroll disabled
+}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Look and Feel (Basic - No Animations/Blur)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+default_border pixel 2
+default_floating_border pixel 2
+
+gaps inner 1
+gaps outer 2
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Window Rules
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Audacious on special workspace
+for_window [class="audacious"] move container to workspace special:audacious
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Keybindings
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Terminal
+bindsym $mod+Return exec $terminal
+
+# Kill active window
+bindsym $mod+Q kill
+
+# File manager
+bindsym $mod+E exec $fileManager
+
+# Toggle floating
+bindsym $mod+T floating toggle
+
+# Application menu
+bindsym $mod+space exec $menu
+
+# Obsidian
+bindsym $mod+Shift+O exec $obsidian
+
+# Browser
+bindsym $mod+Shift+B exec $browser
+
+# VS Code
+bindsym $mod+Shift+V exec $vscode
+
+# Color picker
+bindsym $mod+Shift+C exec $color_picker
+
+# Lock screen
+bindsym Super+l exec swaylock -i ~/Pictures/wallpapers/laptop.jpg -s fill --effect-blur 7x3 --indicator-radius 70 --verify-color 169fb1 --fail-color f8b089 --ring-color 169fb1 --key-hl-color b2cacd --inside-color 031417
+
+# Pseudo tiling (dwindle layout - split toggle)
+bindsym $mod+P split toggle
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Focus Movement (Alt + H/J/K/L)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Workspace Switching (Alt + 1-0)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Move Window to Workspace (Alt + Shift + 1-0)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+Shift+1 move container to workspace 1, workspace 1
+bindsym $mod+Shift+2 move container to workspace 2, workspace 2
+bindsym $mod+Shift+3 move container to workspace 3, workspace 3
+bindsym $mod+Shift+4 move container to workspace 4, workspace 4
+bindsym $mod+Shift+5 move container to workspace 5, workspace 5
+bindsym $mod+Shift+6 move container to workspace 6, workspace 6
+bindsym $mod+Shift+7 move container to workspace 7, workspace 7
+bindsym $mod+Shift+8 move container to workspace 8, workspace 8
+bindsym $mod+Shift+9 move container to workspace 9, workspace 9
+bindsym $mod+Shift+0 move container to workspace 10, workspace 10
+
+# Swap windows between workspaces
+bindsym $mod+Shift+W exec ~/dotfiles/scripts/sway-swap-windows-between-workspaces
+
+# Screen recording
+bindsym $mod+Shift+R exec ~/dotfiles/scripts/menu-actions/stop-recording
+
+# Restart waybar
+bindsym $mod+Ctrl+r exec pkill waybar; sleep 0.2; waybar -c ~/.config/waybar/config-edp-sway.json & waybar -c ~/.config/waybar/config-hdmi-sway.json
+
+# Wofi menu actions
+bindsym $mod+Ctrl+s exec ~/dotfiles/scripts/menu-actions.sh
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Special Workspace (Audacious)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+M [urgent=latest] focus
+bindsym $mod+Shift+M move container to workspace special:audacious
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Workspace Scrolling (Alt + Mouse Scroll)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+button4 workspace next
+bindsym $mod+button5 workspace prev
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Screenshot
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym Print exec grimshot --notify copy area
+bindsym $mod+Print exec ~/dotfiles/scripts/screenshot-edit.sh
+
+# Clipboard manager
+bindsym $mod+V exec $clipboardManager
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Mouse Bindings (Move/Resize)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym --whole-window $mod+button1 move
+bindsym --whole-window $mod+button2 resize
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Resize Mode (Alt + R)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+R mode "resize"
+
+mode "resize" {
+    bindsym h resize shrink width 30px
+    bindsym j resize grow height 30px
+    bindsym k resize shrink height 30px
+    bindsym l resize grow width 30px
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Move Window (Alt + Ctrl + H/J/K/L)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym $mod+Ctrl+h move left
+bindsym $mod+Ctrl+j move down
+bindsym $mod+Ctrl+k move up
+bindsym $mod+Ctrl+l move right
+
+# Office mode
+bindsym $mod+Ctrl+Shift+O exec ~/dotfiles/scripts/office-mode.sh
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Media Keys (Volume, Brightness, Media)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl s 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Auto-start
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exec swaybg -i ~/Pictures/wallpapers/laptop.jpg -m fill
+exec swaybg -i ~/Pictures/wallpapers/monitor.jpg -m fill
+
+exec mako
+exec blueman-applet
+exec systemctl --user start pipewire.service pipewire-pulse.service wireplumber.service
+exec wl-paste --watch cliphist store
+exec waybar -c ~/.config/waybar/config-edp-sway.json
+exec waybar -c ~/.config/waybar/config-hdmi-sway.json
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# Idle Configuration (swayidle)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exec_always swayidle -w \
+    timeout 300 'swaylock -i ~/Pictures/wallpapers/laptop.jpg -s fill --effect-blur 7x3 --indicator-radius 70 --verify-color 169fb1 --fail-color f8b089 --ring-color 169fb1 --key-hl-color b2cacd --inside-color 031417' \
+    timeout 330 'brightnessctl -s set 1%' \
+    resume 'brightnessctl -s set 40%' \
+    before-sleep 'swaylock -i ~/Pictures/wallpapers/laptop.jpg -s fill --effect-blur 7x3 --indicator-radius 70 --verify-color 169fb1 --fail-color f8b089 --ring-color 169fb1 --key-hl-color b2cacd --inside-color 031417'
+

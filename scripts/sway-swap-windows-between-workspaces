@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+focused_monitor=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused).name')
+other_monitor=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused | not).name')
+
+if [ -z "$other_monitor" ]; then
+    exit 0
+fi
+
+focused_ws=$(swaymsg -t get_outputs | jq -r --arg m "$focused_monitor" '.[] | select(.name == $m).current_workspace')
+other_ws=$(swaymsg -t get_outputs | jq -r --arg m "$other_monitor" '.[] | select(.name == $m).current_workspace')
+
+focused_windows=$(swaymsg -t get_tree | jq -r --arg ws "$focused_ws" '[.. | objects | select(.type == "workspace") | select(.name == $ws) | .nodes[]?.id] | .[]')
+other_windows=$(swaymsg -t get_tree | jq -r --arg ws "$other_ws" '[.. | objects | select(.type == "workspace") | select(.name == $ws) | .nodes[]?.id] | .[]')
+
+for id in $other_windows; do
+    swaymsg "[con_id=$id] move container to workspace $focused_ws" 2>/dev/null
+done
+
+for id in $focused_windows; do
+    swaymsg "[con_id=$id] move container to workspace $other_ws" 2>/dev/null
+done

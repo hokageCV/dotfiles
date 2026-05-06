@@ -38,6 +38,7 @@ window#waybar {
 #wireplumber,
 #network,
 #custom-presentation-mode,
+#custom-focused-window,
 #window {
   padding: 1px 10px;
   margin: 1px 4px;
@@ -58,7 +59,8 @@ window#waybar {
   border-radius: 6px;
 }
 
-#workspaces button.active {
+#workspaces button.active,
+#workspaces button.focused {
   background-color: @cyan;
   color: @bg;
 }

@@ -1,0 +1,88 @@
+{
+  "layer": "top",
+  "position": "top",
+  "all-outputs": false,
+  "output": "eDP-1",
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["custom/focused-window"],
+  "modules-right": ["custom/presentation-mode", "clock", "battery", "bluetooth", "wireplumber", "network"],
+  "custom/focused-window": {
+    "exec": "$HOME/dotfiles/scripts/sway-waybar-focused-window",
+    "interval": 1,
+    "return-type": "text",
+    "max-length": 70,
+    "tooltip": false
+  },
+  "sway/window": {
+    "format": "{}",
+    "max-length": 70,
+    "separate-outputs": true,
+    "on-update": true
+  },
+  "custom/presentation-mode": {
+    "exec": "$HOME/dotfiles/scripts/waybar-presentation-mode",
+    "interval": 2,
+    "return-type": "text",
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip": true,
+    "tooltip-format": "{:%d %b, %a}"
+  },
+  "battery": {
+      "format": "{capacity}%",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip-format": "{timeTo} ({capacity}%)"
+  },
+  "bluetooth": {
+      "format": "",
+      "format-connected": " ✔",
+      "format-off": "",
+      "format-disabled": "",
+      "on-click": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
+      "tooltip": true,
+      "tooltip-format": "{device_alias}"
+  },
+  "network": {
+    "format-wifi": "",
+    "format-disconnected": "🛜 off",
+    "format-ethernet": "",
+    "tooltip-format": "{essid} ({signalStrength}%)\n{ipaddr}",
+    "tooltip-format-disconnected": "no wifi connected"
+  },
+  "wireplumber": {
+    "format": " {volume}%",
+    "format-muted": "  ⛌",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_SINK@ 5%-",
+    "tooltip": true
+  },
+  "sway/workspaces": {
+    "monitor": "eDP-1",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "♦",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": []
+    }
+  }
+}
