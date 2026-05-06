@@ -6,7 +6,7 @@
 
 REPOS=(
   "rpmfusion"
-  "copr:solopasha/hyprland"
+  "copr:lionheartp/Hyprland"
 )
 
 # ----------------------------
@@ -32,6 +32,8 @@ PACKAGES=(
   hyprlock
   hypridle
   hyprpaper
+  hyprutils
+  hyprland-guiutils
   xdg-desktop-portal-hyprland
   qt6ct
 

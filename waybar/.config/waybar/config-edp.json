@@ -23,12 +23,22 @@
     "tooltip-format": "{:%d %b, %a}"
   },
   "battery": {
-      "format": "{capacity}% ",
-      "full-at": 90,
-      "format-full": "",
-      "format-charging": "{capacity}%⚡",
-      "format-plugged": "",
-      "interval": 30
+    "interval": 30,
+    "states": {
+        "high": 90
+    },
+    // Default format (Battery > 90% and not charging)
+    "format": "",
+
+    // Not charging and Battery <= 90%
+    "format-high": "{capacity}% ",
+
+    // Charger plugged but not charging battery
+    "format-plugged": "",
+    "format-full": "",
+
+    // Actively charging
+    "format-charging": "{capacity}%⚡"
   },
   "bluetooth": {
       "format": "",

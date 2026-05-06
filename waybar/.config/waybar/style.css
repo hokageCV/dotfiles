@@ -40,7 +40,7 @@ window#waybar {
 #custom-presentation-mode,
 #custom-focused-window,
 #window {
-  padding: 1px 10px;
+  padding: 1px 8px;
   margin: 1px 4px;
 
   background-color: @bg;
@@ -51,8 +51,8 @@ window#waybar {
 /* ---------- Workspaces ---------- */
 
 #workspaces button {
-  padding: 1px 6px;
-  margin: 0 2px;
+  padding: 1px 3px;
+  margin: 0 1px;
 
   background: transparent;
   color: @muted;
