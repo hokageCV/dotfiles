@@ -9,3 +9,5 @@ alias hs='hugo server'
 # yazi
 alias yz='yazi '
 
+alias oc='opencode '
+
