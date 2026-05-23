@@ -7,6 +7,7 @@
 REPOS=(
   "rpmfusion"
   "copr:lionheartp/Hyprland"
+  "copr:alternateved/keyd"
 )
 
 # ----------------------------
