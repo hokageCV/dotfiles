@@ -1,7 +1,7 @@
 # node
-alias nr='npm run '
-alias nd='npm run dev'
-alias ns='npm run start'
+alias nr='pnpm run '
+alias nd='pnpm run dev'
+alias ns='pnpm run start'
 
 # hugo
 alias hs='hugo server'
@@ -10,4 +10,5 @@ alias hs='hugo server'
 alias yz='yazi '
 
 alias oc='opencode '
+alias occ='opencode --continue '
 
