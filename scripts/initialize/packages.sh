@@ -8,6 +8,7 @@ REPOS=(
   "rpmfusion"
   "copr:lionheartp/Hyprland"
   "copr:alternateved/keyd"
+  "copr:mineiro/satty"
 )
 
 # ----------------------------
@@ -47,7 +48,7 @@ PACKAGES=(
   # Screenshots / media
   grim
   slurp
-  swappy
+  satty
   wl-clipboard
   cliphist
   grimshot

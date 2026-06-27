@@ -1,0 +1,28 @@
+[general]
+fullscreen = false
+floating-hack = true
+corner-roundness = 12
+initial-tool = "arrow"
+copy-command = "wl-copy"
+output-filename = "~/Pictures/screenshots/%y%m%d-%H%M%S%3f.png"
+save-after-copy = false
+default-hide-toolbars = false
+disable-notifications = false
+
+[keybinds]
+pointer = "p"
+crop = "c"
+brush = "b"
+line = "i"
+arrow = "z"
+rectangle = "r"
+ellipse = "e"
+text = "t"
+marker = "m"
+blur = "u"
+highlight = "g"
+
+[font]
+family = "Roboto"
+style = "Regular"
+fallback = ["Noto Sans CJK SC"]
