@@ -1,0 +1,18 @@
+# Voxtype Configuration
+# Full reference: https://voxtype.io/docs/CONFIGURATION
+
+[hotkey]
+# evdev hotkey is disabled — Hyprland handles push-to-talk via F5
+enabled = false
+
+[whisper]
+# Transcription model
+model = "base.en"
+language = "en"
+translate = false
+
+[output]
+mode = "type"
+# Fall back to clipboard if typing fails
+fallback_to_clipboard = true
+
