@@ -25,17 +25,17 @@ launch_on_ws() {
   shift 2
   local cmd=("$@")
 
-  hyprctl dispatch workspace "$ws"
+  hyprctl dispatch "hl.dsp.focus({ workspace = '$ws' })"
   sleep 0.06
 
   "${cmd[@]}" &
 
   WIN_ADDR=$(wait_for_class "$class") || WIN_ADDR=""
   if [ -n "$WIN_ADDR" ]; then
-    hyprctl dispatch movetoworkspace "$ws,address:$WIN_ADDR"
+    hyprctl dispatch "hl.dsp.window.move({ workspace = '$ws', window = 'address:$WIN_ADDR' })"
   fi
 
-  hyprctl dispatch workspace "$CUR_WS"
+  hyprctl dispatch "hl.dsp.focus({ workspace = '$CUR_WS' })"
   sleep 0.02
 }
 
@@ -52,7 +52,7 @@ launch_on_ws 4 "Brave-browser" brave-browser --profile-directory="Profile 1"
 # =======================================================
 
 # 1. Switch to workspace 3
-hyprctl dispatch workspace 3
+hyprctl dispatch "hl.dsp.focus({ workspace = '3' })"
 sleep 0.1
 
 # 2. Launch Brave new window with Slack

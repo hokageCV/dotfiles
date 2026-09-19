@@ -17,7 +17,7 @@ hyprctl -j clients | jq -r '.[] | "\(.workspace.id) \(.address)"' | while read -
   target=$(map_workspace "$ws")
   if [[ -n "$target" ]]; then
     echo "Moving window $addr from WS $ws -> WS $target"
-    hyprctl dispatch movetoworkspacesilent "$target,address:$addr"
+    hyprctl dispatch "hl.dsp.window.move({ workspace = '$target', window = 'address:$addr', follow = false })"
   fi
 done
 
