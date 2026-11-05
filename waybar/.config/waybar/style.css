@@ -35,6 +35,7 @@ window#waybar {
 #clock,
 #battery,
 #bluetooth,
+#custom-bluetooth-off,
 #backlight,
 #custom-brightness,
 #wireplumber,
@@ -94,6 +95,10 @@ window#waybar {
 }
 
 #bluetooth {
+  color: #49d6e9;
+}
+
+#custom-bluetooth-off {
   color: #49d6e9;
 }
 

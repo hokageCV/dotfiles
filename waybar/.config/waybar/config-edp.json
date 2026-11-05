@@ -6,7 +6,7 @@
   "output": "eDP-1",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["group/brightness", "custom/presentation-mode", "clock", "battery", "bluetooth", "wireplumber", "network"],
+  "modules-right": ["group/quick", "custom/presentation-mode", "clock", "battery", "bluetooth", "wireplumber", "network"],
   "hyprland/window": {
     "format": "{title}",
     "max-length": 70
@@ -41,26 +41,34 @@
     "format-charging": "{capacity}%⚡"
   },
   "bluetooth": {
-      "format": "",
+      "format": "",
       "format-connected": " ✔",
-      "format-off": "",
+      "format-on": "",
+      "format-off": "",
       "format-disabled": "",
+      "format-no-controller": "",
       "on-click": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
       "tooltip": true,
       "tooltip-format": "{device_alias}"
   },
-  "group/brightness": {
+  "group/quick": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 250,
       "transition-left-to-right": false
     },
-    "modules": ["custom/brightness-hint", "backlight"]
+    "modules": ["custom/brightness-hint", "backlight", "custom/bluetooth-off"]
   },
   "custom/brightness-hint": {
     "exec": "echo '☀'",
     "interval": "once",
     "tooltip": false
+  },
+  "custom/bluetooth-off": {
+    "exec": "$HOME/dotfiles/scripts/waybar-bluetooth-off",
+    "interval": 5,
+    "tooltip": false,
+    "on-click": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
   },
   "backlight": {
     "format": "☀ {percent}%",

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+# Drawer fallback for bluetooth: shown only while no device is connected.
+# The native bluetooth module outside the drawer handles the connected state.
+if bluetoothctl devices Connected 2>/dev/null | grep -q '^Device '; then
+  exit 0
+fi
+
+echo ""
