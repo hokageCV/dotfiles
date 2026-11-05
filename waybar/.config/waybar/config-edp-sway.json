@@ -5,7 +5,7 @@
   "output": "eDP-1",
   "modules-left": ["sway/workspaces"],
   "modules-center": ["custom/focused-window"],
-  "modules-right": ["custom/presentation-mode", "clock", "battery", "bluetooth", "wireplumber", "network"],
+  "modules-right": ["group/brightness", "custom/presentation-mode", "clock", "battery", "bluetooth", "wireplumber", "network"],
   "custom/focused-window": {
     "exec": "$HOME/dotfiles/scripts/sway-waybar-focused-window",
     "interval": 1,
@@ -43,6 +43,26 @@
       "on-click": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
       "tooltip": true,
       "tooltip-format": "{device_alias}"
+  },
+  "group/brightness": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 250,
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/brightness-hint", "backlight"]
+  },
+  "custom/brightness-hint": {
+    "exec": "echo '☀'",
+    "interval": "once",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "☀ {percent}%",
+    "interval": 2,
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip": false
   },
   "network": {
     "format-wifi": "",

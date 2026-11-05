@@ -5,7 +5,28 @@
   "all-outputs": false,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
-  "modules-right": [],
+  "modules-right": ["group/brightness"],
+  "group/brightness": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 250,
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/brightness-hint", "custom/brightness"]
+  },
+  "custom/brightness-hint": {
+    "exec": "echo '☀'",
+    "interval": "once",
+    "tooltip": false
+  },
+  "custom/brightness": {
+    "exec": "$HOME/dotfiles/scripts/waybar-brightness-external get",
+    "interval": 10,
+    "signal": 9,
+    "on-scroll-up": "$HOME/dotfiles/scripts/waybar-brightness-external up && pkill -RTMIN+9 waybar",
+    "on-scroll-down": "$HOME/dotfiles/scripts/waybar-brightness-external down && pkill -RTMIN+9 waybar",
+    "tooltip": false
+  },
   "hyprland/workspaces": {
     "monitor": "HDMI-A-1", 
     "format": "{icon}",

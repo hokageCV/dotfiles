@@ -35,6 +35,8 @@ window#waybar {
 #clock,
 #battery,
 #bluetooth,
+#backlight,
+#custom-brightness,
 #wireplumber,
 #network,
 #custom-presentation-mode,
@@ -98,6 +100,22 @@ window#waybar {
 #bluetooth.off,
 #bluetooth.disabled {
   color: @muted;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+/* Invisible drawer leader: hover target for the brightness drawer */
+#custom-brightness-hint {
+  opacity: 0;
+  padding: 1px 6px;
+  margin: 1px 0;
+  background: transparent;
+}
+
+#custom-brightness {
+  color: @yellow;
 }
 
 #wireplumber {

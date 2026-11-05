@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+CONNECTOR="${CONNECTOR:-HDMI-A-1}"
+STEP="${STEP:-5}"
+FEATURE="${FEATURE:-10}"
+
+find_bus() {
+  local ddc status
+  for ddc in /sys/class/drm/card*-"$CONNECTOR"/ddc; do
+    [[ -e "$ddc" ]] || continue
+    status="$(cat "${ddc%/ddc}/status" 2>/dev/null)" || continue
+    [[ "$status" == "connected" ]] || continue
+    basename "$(readlink -f "$ddc")"
+    return 0
+  done
+  return 1
+}
+
+bus_name="$(find_bus)" || exit 0
+bus="${bus_name#i2c-}"
+
+ddc() { ddcutil --bus "$bus" --sleep-multiplier .1 "$@" 2>/dev/null; }
+
+case "${1:-get}" in
+  get)
+    out="$(ddc --brief getvcp "$FEATURE")" || exit 0
+    read -r _ _ _ cur max <<<"$out"
+    [[ -n "${cur:-}" && -n "${max:-}" && "$max" -gt 0 ]] || exit 0
+    echo "☀ $((cur * 100 / max))%"
+    ;;
+  up)   ddc setvcp "$FEATURE" + "$STEP" ;;
+  down) ddc setvcp "$FEATURE" - "$STEP" ;;
+esac
